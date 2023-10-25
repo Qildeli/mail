@@ -1,4 +1,4 @@
-# Mailbox: A Modern Email Web Application
+# Mail: A Modern Email Web Application
 
 ## Overview
 **Mail** is an easy-to-use email application that takes inspiration from classic email systems. With its modern design and straightforward interface, it offers:
