@@ -3,11 +3,6 @@
 ## Overview
 **Mail** is an easy-to-use email application that takes inspiration from classic email systems. With its modern design and straightforward interface, it offers:
 
-- **Post Auction Listings:** Users can easily list items they wish to auction.
-- **Place Bids:** Engage in competitive bidding for items of interest.
-- **Comment on Listings:** Engage in discussions or ask questions related to the auction item.
-- **Add to Watchlist:** Track items of interest by adding them to your watchlist.
-
 - **Compose New Emails:** Allows users to quickly write and send emails.
 - **Inbox Management:** Review all incoming emails conveniently in a structured inbox.
 - **Archiving:** Users have the option to archive emails, ensuring that important messages are safely stored.
