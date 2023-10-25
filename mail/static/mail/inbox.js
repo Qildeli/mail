@@ -36,6 +36,7 @@ function load_mailbox(mailbox) {
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
 
+
   // Fetch emails for the mailbox
   fetch(`/emails/${mailbox}`)
   .then(response => response.json())
@@ -56,6 +57,9 @@ function load_mailbox(mailbox) {
                   <strong>Subject:</strong> ${email.subject}<br>
                   <strong>Timestamp:</strong> ${email.timestamp}
               `;
+
+              // Show the Email When Clicked
+              emailElement.addEventListener('click', () => view_email(email.id));
 
               // Append the email to the emails view
               document.querySelector('#emails-view').appendChild(emailElement);
@@ -99,3 +103,42 @@ function send_email() {
     });
 }
 
+
+function view_email(email_id) {
+    // Ask the server for the email's details
+    fetch(`/emails/${email_id}`)
+    .then(response => response.json())
+    .then(email => {
+        // Hide other sections
+        document.querySelector('#emails-view').style.display = 'none';
+        document.querySelector('#compose-view').style.display = 'none';
+
+        // Get our email-view box and fill it with the email's details
+        const emailView = document.querySelector('#email-view');
+        emailView.style.display = 'block';
+        emailView.innerHTML = `
+            <strong>From:</strong> ${email.sender}<br>
+            <strong>To:</strong> ${email.recipients.join(', ')}<br>
+            <strong>Subject:</strong> ${email.subject}<br>
+            <strong>Timestamp:</strong> ${email.timestamp}<br>
+            <hr>
+            ${email.body}
+        `;
+
+        // Mark this email as "read"
+        mark_as_read(email_id);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function mark_as_read(email_id) {
+    // Tell the server this email has been read
+    fetch(`/emails/${email_id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            read: true
+        })
+    });
+}
