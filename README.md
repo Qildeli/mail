@@ -13,7 +13,7 @@
 - **Archiving:** Users have the option to archive emails, ensuring that important messages are safely stored.
 - **Mail Categories:** Emails are classified under categories like Inbox, Sent, and Archive for better organization.
 
-This project is an assignment from [Harvard's CS50 Web Programming with Python and JavaScript course](https://cs50.harvard.edu/web/2020/projects/2/).
+This project is an assignment from [Harvard's CS50 Web Programming with Python and JavaScript course](https://cs50.harvard.edu/web/2020/projects/3/).
 
 ## Setup
 1. **Clone this repository**
